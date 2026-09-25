@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Сканируй или нажми ♥</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: #fff7fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .qr-card {
+      text-align: center;
+      padding: 30px;
+    }
+
+    /* Кликабельная область */
+    .qr-link {
+      display: inline-block;
+      text-decoration: none;
+
+      background: white;
+      padding: 18px;
+
+      border-radius: 28px;
+
+      box-shadow:
+        0 10px 35px rgba(214, 84, 133, 0.18);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .qr-link:hover {
+      transform: scale(1.04);
+
+      box-shadow:
+        0 15px 45px rgba(214, 84, 133, 0.28);
+    }
+
+    .qr-link:active {
+      transform: scale(0.97);
+    }
+
+    #qrcode {
+      width: 300px;
+      height: 300px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #qrcode img,
+    #qrcode canvas {
+      width: 300px !important;
+      height: 300px !important;
+      display: block;
+    }
+
+    .heart {
+      font-size: 28px;
+      color: #e05b8d;
+
+      margin-top: 18px;
+      margin-bottom: 5px;
+    }
+
+    .caption {
+      font-size: 23px;
+      font-style: italic;
+      color: #d65386;
+
+      letter-spacing: 0.3px;
+    }
+
+    .small-text {
+      margin-top: 10px;
+
+      font-size: 14px;
+      color: #b87a92;
+    }
+
+    @media (max-width: 500px) {
+
+      .qr-card {
+        padding: 20px;
+      }
+
+      #qrcode,
+      #qrcode img,
+      #qrcode canvas {
+        width: 260px !important;
+        height: 260px !important;
+      }
+
+      .caption {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="qr-card">
+
+    <!--
+      НАЖАТИЕ НА QR-КОД ОТКРОЕТ ТВОЙ САЙТ
+    -->
+    <a
+      class="qr-link"
+      href="https://mmmminvvv-afk.github.io/ma/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Открыть поздравление для мамы"
+    >
+
+      <div id="qrcode"></div>
+
+    </a>
+
+    <div class="heart">♥</div>
+
+    <div class="caption">
+      Сканируй или нажми
+    </div>
+
+    <div class="small-text">
+      чтобы открыть поздравление
+    </div>
+
+  </div>
+
+
+  <!-- Библиотека генерации QR-кода -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+
+  <script>
+
+    /*
+      АДРЕС ТВОЕГО САЙТА
+    */
+    const website =
+      "https://mmmminvvv-afk.github.io/ma/";
+
+
+    /*
+      Создаём QR-код
+    */
+    new QRCode(document.getElementById("qrcode"), {
+
+      text: website,
+
+      width: 300,
+      height: 300,
+
+      colorDark: "#d95788",
+      colorLight: "#ffffff",
+
+      correctLevel: QRCode.CorrectLevel.H
+
+    });
+
+  </script>
+
+</body>
+</html>
